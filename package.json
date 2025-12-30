@@ -23,9 +23,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/three": "^0.182.0",
-    "gh-pages": "^5.0.0",
     "babel-plugin-react-compiler": "1.0.0",
+    "gh-pages": "^5.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
