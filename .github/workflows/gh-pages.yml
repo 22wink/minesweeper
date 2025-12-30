@@ -28,6 +28,11 @@ jobs:
       - name: Build (static export configured via next.config)
         run: npm run build
 
+      - name: Configure git identity for deploy
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
       - name: Deploy to GitHub Pages via gh-pages CLI
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
