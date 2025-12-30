@@ -1,40 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 扫雷游戏
 
-## Getting Started
+使用 Next.js 和 Canvas API 构建的经典扫雷游戏。
 
-First, run the development server:
+## 功能特性
+
+- 🎮 经典扫雷游戏体验
+- 🖱️ 支持鼠标和触屏操作
+- ⏱️ 实时计时器
+- 🚩 智能标记系统
+- 📱 响应式设计，支持移动端
+- 🎯 游戏状态管理（胜利/失败）
+- ⚙️ 多种难度选择（初级/中级/高级/自定义）
+- 💥 失败时连环爆炸特效显示所有地雷
+
+## 游戏规则
+
+1. 初始自动翻开一片区域
+2. 格子数字表示周围雷的数量
+3. 目标是在最短时间内找出所有雷
+4. 触雷则输
+
+## 操作方式
+
+### 电脑操作
+- **鼠标右键**：点击原始方块标记为雷，再点去除标记
+- **鼠标左键**：点击无标记方块直接打开
+- **双击数字**：当标记的雷数和数字匹配时，翻开周围的安全区域
+
+### 手机/平板操作
+- **点击**：标记为雷，再点去除标记
+- **双击数字**：当标记的雷数和数字匹配时，翻开周围的安全区域
+- **长按**：直接打开方块
+
+## 技术栈
+
+- **Next.js 16** - React 框架
+- **Canvas API** - 2D 渲染引擎
+- **TypeScript** - 类型安全
+- **Tailwind CSS** - 样式框架
+
+## 安装和运行
 
 ```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 构建生产版本
+npm run build
+
+# 启动生产服务器
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 项目结构
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```
+src/
+├── components/
+│   ├── MinesweeperGame.tsx      # 主游戏组件
+│   ├── MinesweeperGrid2D.tsx    # 2D 网格渲染
+│   ├── GameUI.tsx               # 游戏界面UI
+│   └── DifficultySelector.tsx   # 难度选择器
+├── types/
+│   └── game.ts                  # 类型定义
+├── utils/
+│   └── gameLogic.ts             # 游戏逻辑
+└── pages/
+    └── index.tsx                # 主页面
+```
