@@ -28,13 +28,9 @@ jobs:
       - name: Build (static export configured via next.config)
         run: npm run build
 
-      - name: Set repo name for publish dir
-        run: echo "REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)" >> $GITHUB_ENV
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out/${{ env.REPO_NAME }}
+      - name: Deploy to GitHub Pages via gh-pages CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run deploy
 
 
